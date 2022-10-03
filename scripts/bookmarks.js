@@ -133,17 +133,3 @@ $(document).keyup(function(e) {
         }
    }
 });
-
-// const match = document.querySelector("#matches");
-
-// $("#search").on('keypress keyup change input', function() { 
-    
-//     let arrival = $(this).val().toLowerCase();
-//     if(arrival.indexOf("*") === 0){
-//         let result = _.find(links, {'Name': arrival.slice(1)});
-//         if(result){
-//             match.textContent = result;
-//         }
-         
-//     }
-// });
