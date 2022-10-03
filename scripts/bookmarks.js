@@ -29,7 +29,7 @@ const data = [{
        },
        {
         "Name":"Classroom",
-        "URL":"https://www.classroom.com"
+        "URL":"https://www.classroom.google.com"
        },
        {
         "Name":"Pasja informatyki",
