@@ -1,0 +1,13 @@
+{
+    "name": "Startpage",
+    "version": "1",
+    "permissions": ["activeTab","tabs"],
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "chrome_url_overrides":{
+        "newtab":"index.html"
+    },
+    "action":{}
+}
