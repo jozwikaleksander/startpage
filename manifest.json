@@ -2,7 +2,12 @@
     "name": "Startpage",
     "description": "Simple startpage with bookmarks.",
     "version": "1",
-    "permissions": ["activeTab","tabs"],
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "bookmarks",
+        "storage"
+    ],
     "manifest_version": 3,
     "chrome_url_overrides":{
         "newtab":"index.html",
@@ -10,5 +15,6 @@
     },
     "icons": {
         "96":"icon.png"
-    }
+    },
+    "options_page":"config/configuration.html"
 }

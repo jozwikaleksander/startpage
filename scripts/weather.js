@@ -12,8 +12,12 @@ function getWeather(x) {
    humidity.innerHTML = x.main.humidity + " %";
    location.innerHTML = x.name+ ", " + x.sys.country;
 }
+let openWeatherURL = "";
+chrome.storage.sync.get(['openWeatherAPIURL'], function(url) {
+    openWeatherURL = url.openWeatherAPIURL;
 
-// API Request
-fetch(openWeatherURL)
-.then(data => data.json())
-.then(data => getWeather(data));
+    // API Request
+   fetch(openWeatherURL)
+   .then(data => data.json())
+   .then(data => getWeather(data));
+    })

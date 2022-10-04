@@ -2,4 +2,7 @@
 const gifTag = document.querySelector('#gif-img');
 const gifPath = "img/green.gif";
 
-gifTag.src = gifPath;
+chrome.storage.sync.get(['startpageGif'],function(gif){
+    console.log(gif.start);
+    gifTag.src = gif.startpageGif;
+});
