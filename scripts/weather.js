@@ -14,6 +14,6 @@ function getWeather(x) {
 }
 
 // API Request
-fetch('https://api.openweathermap.org/data/2.5/weather?lat=51.4025&lon=21.1471&appid=e4af92d28fd259ed941e40e83ea4c432')
+fetch(openWeatherURL)
 .then(data => data.json())
 .then(data => getWeather(data));
