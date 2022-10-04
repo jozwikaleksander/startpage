@@ -1,5 +1,7 @@
-# startpage
+# 🏠 Startpage
 
 Custom startpage made without any frameworks.
 
-Temporarly variables are hardcoded, ulitmately I want to store them in JSON file.
+Using Gruvbox color palette.
+
+By Aleksander Jóźwik
