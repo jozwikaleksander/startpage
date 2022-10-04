@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startpage configuration</title>
+    <script src="../jquery/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        body{
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <p><span class="accent">Current URL:</span> <span id="api-url">no url</span></p>
+    <p><span class="accent">Current GIF:</span> <span id="api-current-gif">no gif url</span></p>
+
+    <form>
+        <p class="accent">Input your Open Weather API URL:</p>
+        <input class="api-input" id="api-input" type="text">
+        <br>
+
+        <p class="accent">Choose your GIF file:</p>
+
+        <input class="api-input" type="text" id="api-gif">
+        <br>
+
+        <input id="api-button" type="submit" value="Submit">
+
+        
+    </form>
+
+    <script src="config.js"></script>
+</body>
+</html>

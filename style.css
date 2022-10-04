@@ -10,7 +10,7 @@
     /* Blue:  #83a598*/
     --accent-color: #b8bb26; 
     /* Font family */
-    --font-family:'Iosevka Web', Iosevka;
+    --font-family:'Iosevka';
 }
 /* Utilities */
 .accent{
@@ -138,4 +138,34 @@ main{
     margin-left: 24px;
     color: var(--accent-color);
     padding: 10px;
+}
+
+/* Styling for config page */
+.api-input{
+    background: none;
+    border: none;
+    padding: 10px;
+    border-bottom: var(--font-color) 1px solid;
+    color: var(--font-color);
+    transition: all linear .2s;
+}
+.api-input:focus{
+    border-color: var(--accent-color);
+    outline:none;
+}
+#api-button{
+    background: none;
+    border: none;
+    padding: 10px;
+    color: var(--accent-color);
+    transition: all linear .2s;
+    margin-top: 20px;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    width: 200px;
+}
+#api-button:hover{
+    background: var(--accent-color);
+    color: var(--font-color);
+    outline:none;
 }

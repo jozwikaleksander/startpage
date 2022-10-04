@@ -1,9 +1,44 @@
+let bookmarks;
+const folderDetection = (elem) => {
+    if(!elem.url){
+        return elem;
+    }
+}
+const writeIntoObject = (res) => {
+    bookmarks = res[0]['children'];
+
+    const links = bookmarks.map((element) => { return element });
+
+    const linksContainer = document.querySelector(".links");
+    const matches = document.querySelector("#matches");
+    const search = document.querySelector("#search");
+
+    // Defining current match; Array of matched link objects
+    let currentMatch = [];
+
+    // Accessing link objects from JSON file (without sections)
+    bookmarks.forEach(link => {
+        linksContainer.innerHTML += createHTML(link);
+    });
+}  
+const getSubTree = (id) => {
+    chrome.bookmarks.getSubTree(id).then(res => writeIntoObject(res));
+}
+
+const getParentFolder = (res) => { if (res.length > 0) {
+    let folder = res.filter(elem => folderDetection(elem));
+    let folderID = folder[0].id;
+    getSubTree(folderID);
+} }
+
+chrome.bookmarks.search("Startpage").then(res => getParentFolder(res));
+
 // Creating HTML for each section
 const createHTML = (obj) => {
-    let html = `<div class='link-group'><p>${obj.Name}</p><ul class="links-list">`;
+    let html = `<div class='link-group'><p>${obj.title}</p><ul class="links-list">`;
     
-    obj.Links.forEach(link => {
-        html += `<li><a href="${link.URL}">${link.Name}</a></li>`;
+    obj.children.forEach(link => {
+        html += `<li><a href="${link.url}">${link.title}</a></li>`;
     });
 
     html+=`</ul></div>`;
@@ -35,19 +70,7 @@ const findMatch = (arrival, list) => {
 }
 
 // Defining constant variables
-const links = bookmarks.map((element) => { return element.Links }).flat();
 
-const linksContainer = document.querySelector(".links");
-const matches = document.querySelector("#matches");
-const search = document.querySelector("#search");
-
-// Defining current match; Array of matched link objects
-let currentMatch = [];
-
-// Accessing link objects from JSON file (without sections)
-bookmarks.forEach(link => {
-    linksContainer.innerHTML += createHTML(link);
-});
 
 // Matching bookmark based of value in search bar
 $("#search").on('keypress keyup change input', function() { 
