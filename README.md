@@ -1,5 +1,5 @@
-# startpage
+# 🏠 startpage
 
 Custom startpage made without any frameworks.
 
-Temporarly variables are hardcoded, ulitmately I want to store them in JSON file.
+You can change settings via extension setting in your browser (this is required when launching extension for the first time).
