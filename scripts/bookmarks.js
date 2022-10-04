@@ -1,21 +1,30 @@
+// Bookmark variable
 let bookmarks;
+
+// Defining current match; Array of matched link objects
+let currentMatch = [];
+
+// Creating links array
+let links = [];
+
+// Accessing HTML tags
+const linksContainer = document.querySelector(".links");
+const matches = document.querySelector("#matches");
+const search = document.querySelector("#search");
+
+// Detecting if chosen object is folder or bookmark
 const folderDetection = (elem) => {
     if(!elem.url){
         return elem;
     }
 }
+// Assigning bookmarks into variable
 const writeIntoObject = (res) => {
     bookmarks = res[0]['children'];
 
-    const links = bookmarks.map((element) => { return element });
+    links = bookmarks.map((element) => { return element.children }).flat();
 
-    const linksContainer = document.querySelector(".links");
-    const matches = document.querySelector("#matches");
-    const search = document.querySelector("#search");
-
-    // Defining current match; Array of matched link objects
-    let currentMatch = [];
-
+    console.log(links);
     // Accessing link objects from JSON file (without sections)
     bookmarks.forEach(link => {
         linksContainer.innerHTML += createHTML(link);
@@ -52,13 +61,14 @@ const findMatch = (arrival, list) => {
     if(arrival.length > 1){
         match = list.filter(function(place) {
             // look for the entry with a matching `code` value
-            return (place.Name.toLowerCase().indexOf(arrival) !== -1);
+            console.log(place);
+            return (place.title.toLowerCase().indexOf(arrival) !== -1);
         });
     }
     if(match != ''){
         let arr = [];
         match.forEach(element => {
-            arr.push(element.Name);
+            arr.push(element.title);
         });
         matches.innerHTML = arr.join(" | ");
        return match;
@@ -93,7 +103,7 @@ $(document).keyup(function(e) {
             window.open("http://www.google.com/search?q="+search.value);
         }
         else{
-            window.open(currentMatch[0].URL);
+            window.open(currentMatch[0].url);
         }
    }
 });
