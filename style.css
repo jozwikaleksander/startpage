@@ -141,6 +141,8 @@ main{
 }
 
 /* Styling for config page */
+
+/* URL input */
 .api-input{
     background: none;
     border: none;
@@ -153,6 +155,7 @@ main{
     border-color: var(--accent-color);
     outline:none;
 }
+/* API BUTTON */
 #api-button{
     background: none;
     border: none;
@@ -168,4 +171,20 @@ main{
     background: var(--accent-color);
     color: var(--font-color);
     outline:none;
+}
+/* API COLOR */
+input[type="color"] {
+	background: none;
+    border: none;
+    padding: 0px;
+    color: var(--accent-color);
+    transition: all linear .2s;
+    margin-top: 20px;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    width: 200px
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0px;
+    
 }
