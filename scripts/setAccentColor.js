@@ -1,3 +1,8 @@
 chrome.storage.sync.get(['accentColor'], function(color) {
-    document.body.style = "--accent-color: " +color.accentColor;
+    if(color.accentColor){
+        document.body.style = "--accent-color: " +color.accentColor;
+    }
+    else{
+        document.body.style = "--accent-color: " +"#b8bb26";
+    }
     })
