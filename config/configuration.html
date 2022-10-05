@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Main -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Startpage configuration</title>
+
+    <!-- Scripts / stylesheets -->
     <script src="../jquery/jquery-3.6.1.min.js"></script>
     <link rel="stylesheet" href="../style.css">
 
+    <!-- Style -->
     <style>
         body{
+            /* Changing flex direction of the body to column to get form desired look */
             flex-direction: column;
         }
     </style>
+
+    <script src="../scripts/setAccentColor.js"></script>
 </head>
 <body>
+    <!-- Current values saved in user profile -->
     <p><span class="accent">Current URL:</span> <span id="api-url">no url</span></p>
     <p><span class="accent">Current GIF:</span> <span id="api-current-gif">no gif url</span></p>
+    <p><span class="accent">Current color:</span> <span id="api-current-color">#b8bb26</span></p>
 
+    <!-- Extension settings form -->
     <form>
         <p class="accent">Input your Open Weather API URL:</p>
         <input class="api-input" id="api-input" type="text">
@@ -28,6 +38,9 @@
         <input class="api-input" type="text" id="api-gif">
         <br>
 
+        <p class="accent">Choose accent color:</p>
+        <input id="api-color" type="color" value="#b8bb26" />
+        <br>
         <input id="api-button" type="submit" value="Submit">
 
         
