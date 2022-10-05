@@ -19,7 +19,9 @@ chrome.storage.sync.get(['startpageGif'], function(gif) {
     currentGif.innerHTML = gif.startpageGif;
     })
 chrome.storage.sync.get(['accentColor'], function(color) {
-    currentColor.innerHTML = color.accentColor;
+    if(color.accentColor == undefined){
+        currentColor.innerHTML = '#b8bb26';
+    }
     })
 
 $(function() {
