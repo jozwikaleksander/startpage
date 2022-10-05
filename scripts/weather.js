@@ -20,4 +20,4 @@ chrome.storage.sync.get(['openWeatherAPIURL'], function(url) {
    fetch(openWeatherURL)
    .then(data => data.json())
    .then(data => getWeather(data));
-    })
+    })   

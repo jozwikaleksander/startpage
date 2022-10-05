@@ -89,7 +89,7 @@ $("#search").on('keypress keyup change input', function() {
         currentMatch = findMatch(arrival.slice(1),links);
     }
     else if(arrival.slice(0, 2) == "r/"){
-        currentMatch = findMatch(arrival.slice(2),reddits);
+        currentMatch = findMatch(arrival.slice(2),links);
     }
     else{
         matches.innerHTML = "";
