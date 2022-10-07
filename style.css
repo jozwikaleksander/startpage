@@ -1,7 +1,3 @@
-:root{
-    /* Font family */
-    --font-family:'Iosevka';
-}
 /* Utilities */
 .accent{
     color: var(--accentColor);
@@ -20,6 +16,25 @@
 /* Basic */
 
 body{
+
+    /* CSS VARIABLES */
+    /* Color palette */
+    --fontColor: #fff;
+    --fontHoverColor: #aaa;
+    --backgroundColor: #282828;
+    --foregroundColor: #3c3836;
+    --shadowColor: rgba(0,0,0,0.1);
+    --accentColor: #b8bb26; 
+
+     /* Font variables */
+    --fontFamily:'Iosevka';
+    --fontSize:14px;
+
+    /* Border radius */
+    --borderRadius: 5px;
+
+    /*-----------------*/
+
     background-size:cover;
     background-color: var(--backgroundColor);
     color: var(--fontColor);
@@ -28,16 +43,8 @@ body{
     align-items: center;
     padding: 0;
     margin: 0;
-    font-family: var(--font-family);
+    font-family: var(--fontFamily);
     font-size:16px;
-
-    /* Color palette */
-    --fontColor: #fff;
-    --fontHoverColor: #aaa;
-    --backgroundColor: #282828;
-    --foregroundColor: #3c3836;
-    --shadowColor: rgba(0,0,0,0.1);
-    --accentColor: #b8bb26; 
 }
 a{
     color: var(--fontColor);
@@ -77,8 +84,6 @@ i{
 /* Main */
 main{
     max-height: 300px;
-    min-width:50vw;
-    max-width: 90vw;
     background-color: var(--foregroundColor);
     display: flex;
     border-radius: 20px;
@@ -86,6 +91,8 @@ main{
     -moz-box-shadow: 8px 8px 0px 0px var(--shadowColor);
     box-shadow: 8px 8px 0px 0px var(--shadowColor);
     padding: 20px;
+    min-width:50vw;
+    max-width: 90vw;
 }
 
 /* Left pane */
@@ -107,6 +114,18 @@ main{
     width: 100%;
     /* position: relative;
     bottom: 60px; */
+}
+@media screen and (max-width : 900px) {
+    .left{
+        display: none;
+    }
+    main{
+        width: 90vw !important;
+    }
+    .right{
+        width: 100%;
+        padding-left: 0px !important;
+    }
 }
 
 /* Right pane */
@@ -134,8 +153,8 @@ main{
     color: var(--fontColor);
     border-bottom: solid var(--fontColor) 1px;
     transition: all .2s linear;
-    font-family: var(--font-family);
-    font-size: 14px;
+    font-family: var(--fontFamily);
+    font-size: var(--fontSize);
 }
 .search-bar input:focus{
     outline: none;
@@ -190,7 +209,7 @@ input[type="text"]:focus{
     transition: all linear .2s;
     margin-top: 20px;
     border: 1px solid var(--accentColor);
-    border-radius: 5px;
+    border-radius: var(--borderRadius);
     width: 200px;
 }
 #settings-button:hover{
@@ -207,7 +226,7 @@ input[type="text"]:focus{
     transition: all linear .2s;
     margin-top: 20px;
     border: 1px solid  #DD5353;
-    border-radius: 5px;
+    border-radius: var(--borderRadius);
     width: 200px;
 }
 #settings-reset:hover{
@@ -224,7 +243,7 @@ input[type="color"] {
     transition: all linear .2s;
     margin-top: 20px;
     border: 1px solid var(--accentColor);
-    border-radius: 5px;
+    border-radius: var(--borderRadius);
     width: 200px
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
@@ -234,8 +253,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
 input[type="color"]::after{
     position: relative;
     color: var(--fontColor);
-    font-family: var(--font-family);
-    font-size: 14px;
+    font-family: var(--fontFamily);
+    font-size: var(--fontSize);
     display: block;
     width:100%;
     text-align: center;

@@ -109,10 +109,10 @@ $("#search").on('keypress keyup change input', function() {
 $(document).keyup(function(e) {
     if (e.key === "Enter") {
         if(currentMatch.length == 0){
-            window.open("http://www.google.com/search?q="+search.value);
+            window.open("http://www.google.com/search?q="+search.value,"_self");
         }
         else{
-            window.open(currentMatch[0].url);
+            window.open(currentMatch[0].url,'_self');
         }
    }
 });
