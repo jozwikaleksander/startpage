@@ -9,6 +9,8 @@
 
     <!-- Scripts / stylesheets -->
     <script src="../jquery/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="../fonts/iosevka.css"/>
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
     <link rel="stylesheet" href="../style.css">
 
     <!-- Style -->
@@ -19,33 +21,35 @@
         }
     </style>
 
-    <script src="../scripts/setAccentColor.js"></script>
 </head>
 <body>
-    <!-- Current values saved in user profile -->
-    <p><span class="accent">Current URL:</span> <span id="api-url">no url</span></p>
-    <p><span class="accent">Current GIF:</span> <span id="api-current-gif">no gif url</span></p>
-    <p><span class="accent">Current color:</span> <span id="api-current-color">#b8bb26</span></p>
-
     <!-- Extension settings form -->
     <form>
+        <h2>Settings <i class="fas fa-cog"></i></h2>
         <p class="accent">Input your Open Weather API URL:</p>
-        <input class="api-input" id="api-input" type="text">
+        <input class="settings-input" id="openWeatherAPIURL" type="text">
         <br>
 
         <p class="accent">Choose your GIF file:</p>
 
-        <input class="api-input" type="text" id="api-gif">
+        <input class="settings-input" type="text" id="startpageGif">
         <br>
 
-        <p class="accent">Choose accent color:</p>
-        <input id="api-color" type="color" value="#b8bb26" />
+        <p class="accent">Configure color scheme:</p>
+        <input class="settings-input" id="accentColor" type="color" value="#b8bb26" />
+        <input class="settings-input" id="foregroundColor" type="color" value="#3c3836" />
+        <input class="settings-input" id="backgroundColor" type="color" value="#282828" />
+        <input class="settings-input"id="fontColor" type="color" value="#ffffff" />
+        <input class="settings-input"id="fontHoverColor" type="color" value="#aaaaaa" />
         <br>
-        <input id="api-button" type="submit" value="Submit">
+        <input id="settings-button" type="submit" value="Submit">
+        <input id="settings-reset" type="submit" value="Reset">
 
         
     </form>
 
+    <script src="../scripts/colorTweaking.js"></script>
     <script src="config.js"></script>
+    <script src="../scripts/setCSS.js"></script>
 </body>
 </html>

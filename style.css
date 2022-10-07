@@ -1,47 +1,53 @@
 :root{
-    /* Color palette */
-    --font-color: #fff;
-    --font-hover-color: #aaa;
-    --background-color: #282828;
-    --main-color: #3c3836;
-    --shadow-color: rgba(0,0,0,0.1);
-    /* Gruvbox colors */
-    /* Green: #b8bb26 */
-    /* Blue:  #83a598*/
-    --accent-color: #b8bb26; 
     /* Font family */
     --font-family:'Iosevka';
 }
 /* Utilities */
 .accent{
-    color: var(--accent-color);
+    color: var(--accentColor);
+}
+.center{
+    display:flex;
+    justify-content: center;
+}
+.light::after{
+    color: black !important;
+}
+.dark::after{
+    color:white;
 }
 
 /* Basic */
 
 body{
     background-size:cover;
-    background-color: var(--background-color);
-    color: var(--font-color);
+    background-color: var(--backgroundColor);
+    color: var(--fontColor);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
     padding: 0;
     margin: 0;
     font-family: var(--font-family);
     font-size:16px;
+
+    /* Color palette */
+    --fontColor: #fff;
+    --fontHoverColor: #aaa;
+    --backgroundColor: #282828;
+    --foregroundColor: #3c3836;
+    --shadowColor: rgba(0,0,0,0.1);
+    --accentColor: #b8bb26; 
 }
 a{
-    color: var(--font-color);
+    color: var(--fontColor);
     text-decoration: none;
 }
 a:hover{
-    color: var(--font-hover-color)
+    color: var(--fontHoverColor)
 }
 a:focus{
-    color: var(--accent-color);
+    color: var(--accentColor);
     outline: none;
 }
 ul{
@@ -52,12 +58,20 @@ ul{
   margin: 0;
 }
 i{
-    color: var(--font-color);
+    color: var(--fontColor);
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
     font-size: 18px;
     margin-right: 10px;
+}
+/* Wrapper */
+.wrapper{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Main */
@@ -65,12 +79,12 @@ main{
     max-height: 300px;
     min-width:50vw;
     max-width: 90vw;
-    background-color: var(--main-color);
+    background-color: var(--foregroundColor);
     display: flex;
     border-radius: 20px;
-    -webkit-box-shadow: 8px 8px 0px 0px var(--shadow-color);
-    -moz-box-shadow: 8px 8px 0px 0px var(--shadow-color);
-    box-shadow: 8px 8px 0px 0px var(--shadow-color);
+    -webkit-box-shadow: 8px 8px 0px 0px var(--shadowColor);
+    -moz-box-shadow: 8px 8px 0px 0px var(--shadowColor);
+    box-shadow: 8px 8px 0px 0px var(--shadowColor);
     padding: 20px;
 }
 
@@ -79,16 +93,20 @@ main{
     display: flex;
     justify-content: center;
     margin: 0px;
+    /* max-width: 50%; */
 }
 .gif{
     overflow: hidden;
     border-radius: 20px;
-    border: solid var(--shadow-color) 3px;
+    border: solid var(--shadowColor) 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .gif img{
-    width:100%;
-    position: relative;
-    bottom: 60px;
+    width: 100%;
+    /* position: relative;
+    bottom: 60px; */
 }
 
 /* Right pane */
@@ -113,15 +131,15 @@ main{
     padding: 10px;
     border: none;
     background: none;
-    color: var(--font-color);
-    border-bottom: solid var(--font-color) 1px;
+    color: var(--fontColor);
+    border-bottom: solid var(--fontColor) 1px;
     transition: all .2s linear;
     font-family: var(--font-family);
     font-size: 14px;
 }
 .search-bar input:focus{
     outline: none;
-    border-color: var(--accent-color);
+    border-color: var(--accentColor);
 }
 /* Links */
 .links{
@@ -130,46 +148,71 @@ main{
     width: 100%;
 }
 .link-group p{
-    color: var(--accent-color);
+    color: var(--accentColor);
 }
 #matches{
     position:fixed;
     margin-top: 40px;
     margin-left: 24px;
-    color: var(--accent-color);
+    color: var(--accentColor);
     padding: 10px;
 }
 
 /* Styling for config page */
 
+/* FORM */
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* URL input */
-.api-input{
+input[type="text"]{
     background: none;
     border: none;
     padding: 10px;
-    border-bottom: var(--font-color) 1px solid;
-    color: var(--font-color);
+    border-bottom: var(--fontColor) 1px solid;
+    color: var(--fontColor);
     transition: all linear .2s;
 }
-.api-input:focus{
-    border-color: var(--accent-color);
+input[type="text"]:focus{
+    border-color: var(--accentColor);
     outline:none;
 }
 /* API BUTTON */
-#api-button{
+#settings-button{
     background: none;
     border: none;
     padding: 10px;
-    color: var(--accent-color);
+    color: var(--accentColor);
     transition: all linear .2s;
     margin-top: 20px;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--accentColor);
     border-radius: 5px;
     width: 200px;
 }
-#api-button:hover{
-    background: var(--accent-color);
-    color: var(--font-color);
+#settings-button:hover{
+    background: var(--accentColor);
+    color: var(--fontColor);
+    outline:none;
+}
+/* API RESET */
+#settings-reset{
+    background: none;
+    border: none;
+    padding: 10px;
+    color: #DD5353;
+    transition: all linear .2s;
+    margin-top: 20px;
+    border: 1px solid  #DD5353;
+    border-radius: 5px;
+    width: 200px;
+}
+#settings-reset:hover{
+    background:  #DD5353;
+    color: var(--fontColor);
     outline:none;
 }
 /* API COLOR */
@@ -177,14 +220,39 @@ input[type="color"] {
 	background: none;
     border: none;
     padding: 0px;
-    color: var(--accent-color);
+    color: var(--accentColor);
     transition: all linear .2s;
     margin-top: 20px;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--accentColor);
     border-radius: 5px;
     width: 200px
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
 	padding: 0px;
     
+}
+input[type="color"]::after{
+    position: relative;
+    color: var(--fontColor);
+    font-family: var(--font-family);
+    font-size: 14px;
+    display: block;
+    width:100%;
+    text-align: center;
+    bottom:22px;
+}
+#accentColor:after{
+    content: 'Accent';
+}
+#foregroundColor::after{
+    content: 'Foreground';
+}
+#backgroundColor::after{
+    content: 'Background';
+}
+#fontColor::after{
+    content: 'Font color';
+}
+#fontHoverColor::after{
+    content: 'Hovered font color';
 }

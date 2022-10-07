@@ -1,38 +1,32 @@
 // Script for configuration page
+const inputs = [...document.querySelectorAll(".settings-input")];
 
-// Current values
-const currentURLBox = document.querySelector("#api-url");
-const currentGif = document.querySelector("#api-current-gif");
-const currentColor = document.querySelector("#api-current-color");
+// Getting values from user storage and setting them to HTML tags
 
-// HTML tags
-const inputBar = document.querySelector("#api-input");
-const gifBar = document.querySelector("#api-gif");
-const colorPicker = document.querySelector("#api-color");
-
-
-chrome.storage.sync.get(['openWeatherAPIURL'], function(url) {
-    currentURLBox.innerHTML = url.openWeatherAPIURL;
-    })
-
-chrome.storage.sync.get(['startpageGif'], function(gif) {
-    currentGif.innerHTML = gif.startpageGif;
-    })
-chrome.storage.sync.get(['accentColor'], function(color) {
-    if(color.accentColor == undefined){
-        currentColor.innerHTML = '#b8bb26';
-    }
-    })
-
-$(function() {
-    $('form').submit(function() {
-        setData(inputBar.value,gifBar.value,colorPicker.value);
+inputs.map(input => {
+    let inputID = input.id;
+    chrome.storage.sync.get([inputID], function(res) {
+        if(res[inputID] != undefined && res[inputID] != ""){
+            input.value = res[inputID];
+            if(input.getAttribute('type') == 'color'){
+                updateInput(input);
+            }
+        }
     });
 });
 
-const setData = (url,gif,color) => { 
-    console.log(color);
-    chrome.storage.sync.set({'openWeatherAPIURL': url});
-    chrome.storage.sync.set({'startpageGif': gif});
-    chrome.storage.sync.set({'accentColor': color});
- }
+// Submiting form without reloading the website
+$(function() {
+    $('form').submit(function() {
+        setData(inputs);
+    });
+});
+
+// Setting values to user storage
+const setData = (inputs) => { 
+    inputs.map(input => {
+        let inputID = input.id;
+        let inputValue = input.value;
+        chrome.storage.sync.set({[inputID]:inputValue});
+    });
+ };

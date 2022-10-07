@@ -1,6 +1,6 @@
 // Loading gif via JavaScript
 const gifTag = document.querySelector('#gif-img');
-const gifPath = "img/green.gif";
+const gifPath = "img/gif.gif";
 
 chrome.storage.sync.get(['startpageGif'],function(gif){
     if(gif.startpageGif != undefined && gif.startpageGif != ""){

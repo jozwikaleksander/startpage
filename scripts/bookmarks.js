@@ -24,22 +24,24 @@ const writeIntoObject = (res) => {
 
     links = bookmarks.map((element) => { return element.children }).flat();
 
-    console.log(links);
     // Accessing link objects from JSON file (without sections)
     bookmarks.forEach(link => {
         linksContainer.innerHTML += createHTML(link);
     });
-}  
+} 
+// Getting subtree of provided folder
 const getSubTree = (id) => {
     chrome.bookmarks.getSubTree(id).then(res => writeIntoObject(res));
 }
 
+// Checking is provided object is folder and getting it's id.
 const getParentFolder = (res) => { if (res.length > 0) {
     let folder = res.filter(elem => folderDetection(elem));
     let folderID = folder[0].id;
     getSubTree(folderID);
 } }
 
+// Looking for parent folder
 chrome.bookmarks.search("Startpage").then(res => getParentFolder(res));
 
 // Creating HTML for each section
@@ -54,6 +56,7 @@ const createHTML = (obj) => {
     
     return html;
 }
+
 // Finding match in provided list
 const findMatch = (arrival, list) => {
     let match = [];
@@ -79,9 +82,6 @@ const findMatch = (arrival, list) => {
     }
 }
 
-// Defining constant variables
-
-
 // Matching bookmark based of value in search bar
 $("#search").on('keypress keyup change input', function() { 
     let arrival = $(this).val().toLowerCase();
@@ -90,6 +90,16 @@ $("#search").on('keypress keyup change input', function() {
     }
     else if(arrival.slice(0, 2) == "r/"){
         currentMatch = findMatch(arrival.slice(2),links);
+    }
+    else if(/localhost:\d+/.test(arrival)){
+        currentMatch = [{
+            "url": `http://${arrival}`
+        }]
+    }
+    else if(arrival.slice(0, 3) == "tr="){
+        currentMatch = [{
+            "url": `https://translate.google.com/?sl=en&tl=pl&text=${arrival.slice(3)}&op=translate`
+        }]
     }
     else{
         matches.innerHTML = "";
