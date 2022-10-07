@@ -56,7 +56,6 @@ const createHTML = (obj) => {
     
     return html;
 }
-
 // Finding match in provided list
 const findMatch = (arrival, list) => {
     let match = [];
