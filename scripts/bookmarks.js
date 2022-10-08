@@ -12,6 +12,13 @@ const linksContainer = document.querySelector(".links");
 const matches = document.querySelector("#matches");
 const search = document.querySelector("#search");
 
+let searchURL = "http://www.google.com/search?q="; 
+
+chrome.storage.sync.get(['searchEngine'], function(res) {
+    if(res.searchEngine != undefined){
+        searchURL = res.searchEngine;
+    }
+});
 // Detecting if chosen object is folder or bookmark
 const folderDetection = (elem) => {
     if(!elem.url){
@@ -95,9 +102,12 @@ $("#search").on('keypress keyup change input', function() {
             "url": `http://${arrival}`
         }]
     }
-    else if(arrival.slice(0, 3) == "tr="){
+    else if(/tr-[a-z][a-z][a-z]?=/g.test(arrival)){
+        let rest = arrival.slice(3).split("=");
+        let options = rest[0];
+        let search = rest.slice(1).join("=");
         currentMatch = [{
-            "url": `https://translate.google.com/?sl=en&tl=pl&text=${arrival.slice(3)}&op=translate`
+            "url": `https://translate.google.com/?sl=auto&tl=${options}&text=${search}&op=translate`
         }]
     }
     else{
@@ -109,7 +119,7 @@ $("#search").on('keypress keyup change input', function() {
 $(document).keyup(function(e) {
     if (e.key === "Enter") {
         if(currentMatch.length == 0){
-            window.open("http://www.google.com/search?q="+search.value,"_self");
+            window.open(searchURL+search.value,'self');
         }
         else{
             window.open(currentMatch[0].url,'_self');
