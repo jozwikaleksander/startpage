@@ -69,8 +69,6 @@ const findMatch = (arrival, list) => {
 
     if(arrival.length > 1){
         match = list.filter(function(place) {
-            // look for the entry with a matching `code` value
-            console.log(place);
             return (place.title.toLowerCase().indexOf(arrival) !== -1);
         });
     }
