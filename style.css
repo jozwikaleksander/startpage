@@ -100,7 +100,7 @@ main{
     display: flex;
     justify-content: center;
     margin: 0px;
-    /* max-width: 50%; */
+    max-width: 30%;
 }
 .gif{
     overflow: hidden;
@@ -125,6 +125,16 @@ main{
     .right{
         width: 100%;
         padding-left: 0px !important;
+    }
+}
+@media screen and (min-width : 1300px) and (max-width: 1600px) {
+    main{
+        max-width: 60vw !important;
+    }
+}
+@media screen and (min-width : 1600px) {
+    main{
+        max-width: 55vw !important;
     }
 }
 
