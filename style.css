@@ -33,6 +33,9 @@ body{
     /* Border radius */
     --borderRadius: 5px;
 
+    /* Transition */
+    --transition: 0.2s linear all;
+
     /*-----------------*/
 
     background-size:cover;
@@ -162,7 +165,7 @@ main{
     background: none;
     color: var(--fontColor);
     border-bottom: solid var(--fontColor) 1px;
-    transition: all .2s linear;
+    transition: var(--transition);
     font-family: var(--fontFamily);
     font-size: var(--fontSize);
 }
@@ -180,11 +183,9 @@ main{
     color: var(--accentColor);
 }
 #matches{
-    position:fixed;
-    margin-top: 40px;
-    margin-left: 24px;
+    transition: var(--transition);
+    height: 10px;
     color: var(--accentColor);
-    padding: 10px;
 }
 
 /* Styling for config page */
@@ -204,7 +205,7 @@ input[type="text"]{
     padding: 10px;
     border-bottom: var(--fontColor) 1px solid;
     color: var(--fontColor);
-    transition: all linear .2s;
+    transition: var(--transition);
 }
 input[type="text"]:focus{
     border-color: var(--accentColor);
@@ -216,7 +217,7 @@ input[type="text"]:focus{
     border: none;
     padding: 10px;
     color: var(--accentColor);
-    transition: all linear .2s;
+    transition: var(--transition);
     margin-top: 20px;
     border: 1px solid var(--accentColor);
     border-radius: var(--borderRadius);
@@ -233,7 +234,7 @@ input[type="text"]:focus{
     border: none;
     padding: 10px;
     color: #DD5353;
-    transition: all linear .2s;
+    transition: var(--transition);
     margin-top: 20px;
     border: 1px solid  #DD5353;
     border-radius: var(--borderRadius);
@@ -250,7 +251,7 @@ input[type="color"] {
     border: none;
     padding: 0px;
     color: var(--accentColor);
-    transition: all linear .2s;
+    transition: var(--transition);
     margin-top: 20px;
     border: 1px solid var(--accentColor);
     border-radius: var(--borderRadius);
