@@ -38,6 +38,9 @@ const updateInput = (input) => {
 // onChange event for color inputs
 const colorInputs = document.querySelectorAll('input[type="color"]');
 [...colorInputs].map(input => {
+    window.addEventListener('load',(e) => {
+        updateInput(input);
+    });
     input.addEventListener('change',(e) => {
         updateInput(e.target);
     });
