@@ -1,3 +1,5 @@
+// FIXME: Font bug
+
 // Bookmark variable
 let bookmarks;
 
@@ -12,10 +14,10 @@ const linksContainer = document.querySelector(".links");
 const matches = document.querySelector("#matches");
 const search = document.querySelector("#search");
 
-let searchURL = "http://www.google.com/search?q="; 
+let searchURL = "https://www.google.com/search?q="; 
 
 chrome.storage.sync.get(['searchEngine'], function(res) {
-    if(res.searchEngine != undefined){
+    if(res.searchEngine != undefined && res.searchEngine != ""){
         searchURL = res.searchEngine;
     }
 });
