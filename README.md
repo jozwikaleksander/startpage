@@ -1,5 +1,7 @@
 # 🏠 Startpage
 
+![My configuration](docs/images/screenshot.png)
+
 Customizable startpage chrome extension.
 
 ## **Features**
