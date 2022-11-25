@@ -58,7 +58,7 @@ const createHTML = (obj) => {
     let html = `<div class='link-group'><p>${obj.title}</p><ul class="links-list">`;
     
     obj.children.forEach(link => {
-        html += `<li><a href="${link.url}">${link.title}</a></li>`;
+        html += `<li><a href="${link.url}">${ellipsize(link.title)}</a></li>`;
     });
 
     html+=`</ul></div>`;
@@ -126,3 +126,10 @@ $(document).keyup(function(e) {
         }
    }
 });
+// Ellipsize text
+const ellipsize = (text) => {
+    if (text.length > 15) {
+        return text.substring(0, 15) + '...';
+    }
+    return text;
+}
