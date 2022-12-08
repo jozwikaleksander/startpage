@@ -1,5 +1,5 @@
 // Script for configuration page
-const valuesToSetup = ['accentColor','foregroundColor','backgroundColor','fontColor','fontHoverColor'];
+const valuesToSetup = ['accentColor','foregroundColor','backgroundColor','fontColor','fontHoverColor','fontFamily','fontSize'];
 
 // Getting values from user storage and setting them to HTML tags
 

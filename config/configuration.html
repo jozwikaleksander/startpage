@@ -9,7 +9,6 @@
 
     <!-- Scripts / stylesheets -->
     <script src="../jquery/jquery-3.6.1.min.js"></script>
-    <link rel="stylesheet" href="../fonts/iosevka.css"/>
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <link rel="stylesheet" href="../style.css">
 
@@ -24,7 +23,7 @@
 </head>
 <body>
     <!-- Extension settings form -->
-    <form>
+    <form id="settings-form">
         <h2>Settings <i class="fas fa-cog"></i></h2>
         <p class="accent">Open Weather API URL:</p>
         <input class="settings-input" id="openWeatherAPIURL" type="text">
@@ -40,6 +39,16 @@
         <input class="settings-input" type="text" id="searchEngine">
         <br>
 
+        <p class="accent">Font family:</p>
+
+        <input class="settings-input" type="text" id="fontFamily">
+        <br>
+
+        <p class="accent">Font size (include the unit e.g. px,rem,em):</p>
+
+        <input class="settings-input" type="text" id="fontSize">
+        <br>
+
         <p class="accent">Configure color scheme:</p>
         <input class="settings-input" id="accentColor" type="color" value="#b8bb26" />
         <input class="settings-input" id="foregroundColor" type="color" value="#3c3836" />
@@ -47,13 +56,33 @@
         <input class="settings-input" id="fontColor" type="color" value="#ffffff" />
         <input class="settings-input"id="fontHoverColor" type="color" value="#aaaaaa" />
         <br>
+        <input class="import-button" type="button" value="Import from JSON">
+        <input class="export-button" type="button" value="Export to JSON">
+
+        <br>
         <input id="settings-button" type="submit" value="Submit">
         <input id="settings-reset" type="submit" value="Reset">
 
-        
+        <div class="import-popup hidden">
+            <div class="import-popup-content">
+                <p class="accent">Paste JSON here:</p>
+                <textarea id="import-textarea" rows="10" cols="50"></textarea>
+                <br>
+                <div class="import-popup-buttons">
+                    <button id="import-popup-button"><i class="fa-solid fa-file-import accent"></i>Import</button>
+                    <button id="close-popup-button"><i class="fa-solid fa-xmark red"></i> Close</button>
+                </div>
+            </div>
+        </div>
     </form>
 
+    <div class="popup-message transparent">
+        <span class="popup-message-text"></span>
+        <span class="popup-message-close"><i class="fa-solid fa-xmark accent"></i></span>
+    </div>
+
     <script src="../scripts/colorTweaking.js"></script>
+    <script src="../scripts/popupMessage.js"></script>
     <script src="config.js"></script>
     <script src="../scripts/setCSS.js"></script>
 </body>

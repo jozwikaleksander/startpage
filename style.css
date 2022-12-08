@@ -18,6 +18,18 @@
 .dark::after{
     color:white;
 }
+.hidden{
+    display: none !important;
+}
+.blurred{
+    filter: blur(5px);
+}
+.red{
+    color: var(--redColor);
+}
+.transparent{
+    opacity: 0 !important;
+}
 
 /* Basic */
 
@@ -31,10 +43,11 @@ body{
     --foregroundColor: #3c3836;
     --shadowColor: rgba(0,0,0,0.1);
     --accentColor: #b8bb26; 
+    --redColor: #fb4934;
 
      /* Font variables */
-    --fontFamily:'Fira Code', monospace;
-    --fontSize:14px;
+    --fontFamily:FiraCode, monospace;
+    --fontSize:15px;
 
     /* Border radius */
     --borderRadius: 5px;
@@ -53,7 +66,7 @@ body{
     padding: 0;
     margin: 0;
     font-family: var(--fontFamily);
-    font-size:16px;
+    font-size:var(--fontSize);
 }
 a{
     color: var(--fontColor);
@@ -291,4 +304,137 @@ input[type="color"]::after{
 }
 #fontHoverColor::after{
     content: 'Hovered font color';
+}
+/* Import button */
+.import-button{
+    background: none;
+    border: none;
+    padding: 10px;
+    color: var(--accentColor);
+    transition: var(--transition);
+    margin-top: 20px;
+    border: 1px solid var(--accentColor);
+    border-radius: var(--borderRadius);
+    width: 200px;
+}
+.import-button:hover{
+    background: var(--accentColor);
+    color: var(--backgroundColor);
+    outline:none;
+}
+/* Export button */
+.export-button{
+    background: none;
+    border: none;
+    padding: 10px;
+    color: var(--accentColor);
+    transition: var(--transition);
+    margin-top: 20px;
+    border: 1px solid var(--accentColor);
+    border-radius: var(--borderRadius);
+    width: 200px;
+}
+.export-button:hover{
+    background: var(--accentColor);
+    color: var(--backgroundColor);
+    outline:none;
+}
+/* Import Popup */
+.import-popup{
+    background-color: rgba(0,0,0,0.8);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.import-popup-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#import-popup-button{
+    background: none;
+    border: none;
+    padding: 10px;
+    color: var(--accentColor);
+    transition: var(--transition);
+    margin-top: 20px;
+    border: 1px solid var(--accentColor);
+    border-radius: var(--borderRadius);
+    width: 99%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+#import-popup-button:hover{
+    background: var(--accentColor);
+    color: var(--backgroundColor);
+    outline:none;
+}
+#import-popup-button:hover i{
+    color: var(--backgroundColor) !important;
+}
+#close-popup-button{
+    background: none;
+    border: none;
+    padding: 10px;
+    color: var(--redColor);
+    transition: var(--transition);
+    margin-top: 20px;
+    border: 1px solid var(--redColor);
+    border-radius: var(--borderRadius);
+    width: 99%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+#close-popup-button:hover{
+    background: var(--redColor);
+    color: var(--backgroundColor) !important;
+    outline:none;
+}
+#close-popup-button:hover i{
+    color: var(--backgroundColor) !important;
+}
+.import-popup-buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#import-textarea{
+
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: var(--borderRadius);
+    background: none;
+    color: var(--fontColor);
+    border: solid var(--fontColor) 1px;
+    transition: var(--transition);
+    font-family: var(--fontFamily);
+    font-size: var(--fontSize);
+    padding: 10px;
+    margin-top: 20px;
+}
+.popup-message{
+    color: var(--fontColor);
+    font-family: var(--fontFamily);
+    font-size: var(--fontSize);
+    position:fixed;
+    top: 30px;
+    right: 30px;
+    text-align: center;
+    padding: 10px 15px 10px 15px;
+    background: var(--foregroundColor);
+    border-radius: var(--borderRadius);
+    transition: var(--transition);
+    box-shadow: 8px 8px 0px 0px var(--shadowColor);
+    opacity: 1;
 }

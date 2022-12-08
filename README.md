@@ -12,6 +12,7 @@ Customizable startpage chrome extension.
 - [x] translating sentences via google translator - **tr-*target-language*=*sentence*** (e.g. **tr-pl=example**)
 - [x] information about time and weather(from Open Weather API)
 - [x] customizable color scheme (and gif)
+- [x] importing and exporting settings using JSON
 
 ## **Installation**
 1. Clone the repository
