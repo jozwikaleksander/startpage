@@ -52,6 +52,27 @@ In order to search saved subbredits you have to create subfolder named Subreddit
         ├─ Subreddits/
         │  ├─ r/ subreddit
 
+## **Importing and exporting settings**
+
+You can import settings from JSON in **extension settings**. Pattern for your config file you can find below.
+
+        {
+                "openWeatherAPIURL":"your_api_key",
+                "startpageGif":"img/gif.gif",
+                "searchEngine":"https://www.google.com/search?q=",
+                "fontColor":"#ffffff",
+                "fontHoverColor":"#aaaaaa",
+                "backgroundColor":"#282828",
+                "foregroundColor":"#3c3836",
+                "accentColor":"#b8bb26",
+                "fontFamily":"Roboto"
+        }
+
+To export config simply click **Export button** in **extension settings**s and your configuration will be copied to clipboard.
+
+You can also use custom themes that I made: [click here](https://github.com/jozwikaleksander/startpage/tree/main/docs/themes).
+
+
 ## **Credits**
 Project was made by Aleksander Jóźwik ([@jozwikaleksander](https://github.com/jozwikaleksander)).
 
