@@ -1,5 +1,3 @@
-// FIXME: Font bug
-
 // Bookmark variable
 let bookmarks;
 
