@@ -3,18 +3,20 @@ const inputs = [...document.querySelectorAll(".settings-input")];
 const importButton = document.querySelector(".import-button");
 
 // Getting values from user storage and setting them to HTML tags
-
-inputs.map(input => {
-    let inputID = input.id;
-    chrome.storage.sync.get([inputID], function(res) {
-        if(res[inputID] != undefined && res[inputID] != ""){
-            input.value = res[inputID];
-            if(input.getAttribute('type') == 'color'){
-                updateInput(input);
+const setInputs = () => {
+    inputs.map(input => {
+        let inputID = input.id;
+        chrome.storage.sync.get([inputID], function(res) {
+            if(res[inputID] != undefined && res[inputID] != ""){
+                input.value = res[inputID];
+                if(input.getAttribute('type') == 'color'){
+                    updateInput(input);
+                }
             }
-        }
+        });
     });
-});
+}
+setInputs();
 
 // Submiting form without reloading the website
 $("#settings-form").submit((e) => {
@@ -69,4 +71,9 @@ $(".export-button").click((e) => {
     });
     navigator.clipboard.writeText(JSON.stringify(exportData));
     showPopupMessage("Settings copied to clipboard");
+});
+
+$("#settings-reset").click((e) => {
+    e.preventDefault();
+    setInputs();
 });

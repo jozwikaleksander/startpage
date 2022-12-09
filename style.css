@@ -255,6 +255,7 @@ input[type="text"]:focus{
     color: #DD5353;
     transition: var(--transition);
     margin-top: 20px;
+    margin-bottom:20px;
     border: 1px solid  #DD5353;
     border-radius: var(--borderRadius);
     width: 200px;
