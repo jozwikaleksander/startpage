@@ -6,7 +6,7 @@ Customizable startpage chrome extension.
 
 ## **Features**
 - [x] searching on engine of your choose (Default is Google. You can change it in Extension options)
-- [x] searching saved bookmarks - *** *bookmark***
+- [x] searching saved bookmarks - ***\*bookmark***
 - [x] searching saved subreddits - **/r *subreddit***
 - [x] quickly going to the localhost page - **localhost:*port***
 - [x] translating sentences via google translator - **tr-*target-language*=*sentence*** (e.g. **tr-pl=example**)
@@ -16,6 +16,9 @@ Customizable startpage chrome extension.
 
 ## **Installation**
 1. Clone the repository
+
+        git clone https://github.com/jozwikaleksander/startpage.git
+    
 2. In your browser go to **Extensions** and turn on **Developer Mode**.
 3. Click **Load unpacked** and choose cloned repo location.
 4. Go into **Details>Extenion options**.
