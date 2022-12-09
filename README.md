@@ -16,6 +16,7 @@ Customizable startpage chrome extension.
 
 ## **Installation**
 1. Clone the repository
+    git clone https://github.com/jozwikaleksander/startpage.git
 2. In your browser go to **Extensions** and turn on **Developer Mode**.
 3. Click **Load unpacked** and choose cloned repo location.
 4. Go into **Details>Extenion options**.
