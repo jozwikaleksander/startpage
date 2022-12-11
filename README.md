@@ -42,7 +42,7 @@ Customizable startpage chrome extension.
         │  ├─ Bookmark 3.1
 8. Now your home page should work properly. 😃
 
-## **Subreddits**
+## **🤖 Subreddits**
 In order to search saved subbredits you have to create subfolder named Subreddits in your Startpage folder. Save subreddit bookmark inside this folder and make sure it's name follows this patttern **r/ name**.
 
         Startpage/
