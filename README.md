@@ -4,7 +4,7 @@
 
 Customizable startpage chrome extension.
 
-## **Features**
+## **📄 Features**
 - [x] searching on engine of your choose (Default is Google. You can change it in Extension options)
 - [x] searching saved bookmarks - ***\*bookmark***
 - [x] searching saved subreddits - **/r *subreddit***
@@ -14,7 +14,7 @@ Customizable startpage chrome extension.
 - [x] customizable color scheme (and gif)
 - [x] importing and exporting settings using JSON
 
-## **Installation**
+## **⚙ Installation**
 1. Clone the repository
 
         git clone https://github.com/jozwikaleksander/startpage.git
@@ -55,7 +55,7 @@ In order to search saved subbredits you have to create subfolder named Subreddit
         ├─ Subreddits/
         │  ├─ r/ subreddit
 
-## **Importing and exporting settings**
+## **📦 Importing and exporting settings**
 
 You can import settings from JSON in **extension settings**. Pattern for your config file you can find below.
 
@@ -76,7 +76,7 @@ To export config simply click **Export button** in **extension settings**s and y
 You can also use custom themes that I made: [click here](https://github.com/jozwikaleksander/startpage/tree/main/docs/themes).
 
 
-## **Credits**
+## **👤 Credits**
 Project was made by Aleksander Jóźwik ([@jozwikaleksander](https://github.com/jozwikaleksander)).
 
 Default GIF I used was made by artist Waneella ([@wanella](https://twitter.com/waneella_)).
