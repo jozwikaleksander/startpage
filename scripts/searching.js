@@ -11,22 +11,32 @@ chrome.storage.sync.get(['searchEngine'], function(res) {
 $("#search").on('keypress keyup change input', function() { 
     let arrival = $(this).val().toLowerCase();
     if(arrival.indexOf("*") === 0){
+        // Bookmarksg
         currentMatch = findMatch(arrival.slice(1),links);
     }
     else if(arrival.slice(0, 2) == "r/"){
+        // Reddit subreddits
         currentMatch = findMatch(arrival.slice(2),links);
     }
+    else if(arrival.slice(0,2) == "y/"){
+        // Youtube
+        currentMatch = [{
+            "url": `https://www.youtube.com/results?search_query=${encodeURIComponent(arrival.slice(2))}`
+        }]
+    }
     else if(/localhost:\d+/.test(arrival)){
+        // Localhost
         currentMatch = [{
             "url": `http://${arrival}`
         }]
     }
     else if(/tr-[a-z][a-z][a-z]?=/g.test(arrival)){
+        // Google translate
         let rest = arrival.slice(3).split("=");
         let options = rest[0];
         let search = rest.slice(1).join("=");
         currentMatch = [{
-            "url": `https://translate.google.com/?sl=auto&tl=${options}&text=${search}&op=translate`
+            "url": `https://translate.google.com/?sl=auto&tl=${options}&text=${encodeURIComponent(search)}&op=translate`
         }]
     }
     else{

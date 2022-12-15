@@ -8,6 +8,7 @@ Customizable startpage chrome extension.
 - [x] searching on engine of your choose (Default is Google. You can change it in Extension options)
 - [x] searching saved bookmarks - ***\*bookmark***
 - [x] searching saved subreddits - **/r *subreddit***
+- [x] searching on Youtube - **y/ *search***
 - [x] quickly going to the localhost page - **localhost:*port***
 - [x] translating sentences via google translator - **tr-*target-language*=*sentence*** (e.g. **tr-pl=example**)
 - [x] information about time and weather(from Open Weather API)

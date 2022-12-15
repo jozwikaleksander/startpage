@@ -10,7 +10,8 @@
     ],
     "manifest_version": 3,
     "chrome_url_overrides":{
-        "newtab":"index.html"
+        "newtab":"index.html",
+        "homepage":"index.html"
     },
     "icons": {
         "96":"icon.png"
