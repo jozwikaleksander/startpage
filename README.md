@@ -9,7 +9,7 @@ Customizable startpage chrome extension.
 - [x] searching saved bookmarks - ***\*bookmark***
 - [x] searching saved subreddits - **/r *subreddit***
 - [x] searching on Youtube - **y/ *search***
-- [x] quickly going to the localhost page - **localhost:*port***
+- [x] quickly going to the localhost page - **l/*port***
 - [x] translating sentences via google translator - **tr-*target-language*=*sentence*** (e.g. **tr-pl=example**)
 - [x] information about time and weather(from Open Weather API)
 - [x] customizable color scheme (and gif)

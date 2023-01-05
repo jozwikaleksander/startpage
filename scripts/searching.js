@@ -24,10 +24,10 @@ $("#search").on('keypress keyup change input', function() {
             "url": `https://www.youtube.com/results?search_query=${encodeURIComponent(arrival.slice(2))}`
         }]
     }
-    else if(/localhost:\d+/.test(arrival)){
+    else if(/l\/\d+/.test(arrival)){
         // Localhost
         currentMatch = [{
-            "url": `http://${arrival}`
+            "url": `http://localhost:${arrival.slice(2)}`
         }]
     }
     else if(/tr-[a-z][a-z][a-z]?=/g.test(arrival)){
