@@ -2,6 +2,7 @@
     "name": "Startpage",
     "description": "Simple startpage with bookmarks.",
     "version": "1",
+    "host_permissions": ["<all_urls>"],
     "permissions": [
         "activeTab",
         "tabs",

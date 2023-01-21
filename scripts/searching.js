@@ -8,7 +8,7 @@ chrome.storage.sync.get(['searchEngine'], function(res) {
 });
 
 // Matching bookmark based of value in search bar
-$("#search").on('keypress keyup change input', function() { 
+$(search).on('keypress keyup change input', function() { 
     let arrival = $(this).val().toLowerCase();
     if(arrival.indexOf("*") === 0){
         // Bookmarksg

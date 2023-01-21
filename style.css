@@ -210,9 +210,10 @@ main{
     color: var(--accentColor);
 }
 #matches{
-    transition: var(--transition);
-    height: 10px;
+    min-height: 23px;
+    max-height: fit-content;
     color: var(--accentColor);
+    transition: var(--transition);
 }
 
 /* Styling for config page */

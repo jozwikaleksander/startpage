@@ -23,9 +23,9 @@ const writeIntoObject = (res) => {
     links = bookmarks.map((element) => { return element.children }).flat();
 
     // Accessing link objects from JSON file (without sections)
-    bookmarks.forEach(link => {
-        linksContainer.innerHTML += createHTML(link);
-    });
+    for (let index = 0; index < bookmarks.length; index++) {
+        linksContainer.innerHTML += createHTML(bookmarks[index]);
+    }
 } 
 // Getting subtree of provided folder
 const getSubTree = (id) => {
@@ -45,10 +45,10 @@ chrome.bookmarks.search("Startpage").then(res => getParentFolder(res));
 // Creating HTML for each section
 const createHTML = (obj) => {
     let html = `<div class='link-group'><p>${obj.title}</p><ul class="links-list">`;
-    
-    obj.children.forEach(link => {
-        html += `<li><a href="${link.url}">${ellipsize(link.title)}</a></li>`;
-    });
+
+    for (let index = 0; index < obj.children.length; index++) {
+        html += `<li><a href="${obj.children[index].url}">${ellipsize(obj.children[index].title)}</a></li>`;
+    }
 
     html+=`</ul></div>`;
     
@@ -65,9 +65,11 @@ const findMatch = (arrival, list) => {
     }
     if(match != ''){
         let arr = [];
-        match.forEach(element => {
-            arr.push(element.title);
-        });
+
+        for (let index = 0; index < match.length; index++) {
+            arr.push(match[index].title);    
+        }
+
         matches.innerHTML = arr.join(" | ");
        return match;
     }

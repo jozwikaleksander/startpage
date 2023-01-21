@@ -6,7 +6,7 @@ function showTime(){
     var s = date.getSeconds(); // 0 - 59
 
     var day = date.getDate();
-    var month = date.getMonth();
+    var month = date.getMonth()+1;
     var year = date.getFullYear()
 
     h = (h < 10) ? "0" + h : h;
