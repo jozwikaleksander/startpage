@@ -26,6 +26,7 @@ const writeIntoObject = (res) => {
     for (let index = 0; index < bookmarks.length; index++) {
         linksContainer.innerHTML += createHTML(bookmarks[index]);
     }
+    searchForFolders();
 } 
 // Getting subtree of provided folder
 const getSubTree = (id) => {
@@ -44,10 +45,30 @@ chrome.bookmarks.search("Startpage").then(res => getParentFolder(res));
 
 // Creating HTML for each section
 const createHTML = (obj) => {
+
     let html = `<div class='link-group'><p>${obj.title}</p><ul class="links-list">`;
 
     for (let index = 0; index < obj.children.length; index++) {
-        html += `<li><a href="${obj.children[index].url}">${ellipsize(obj.children[index].title)}</a></li>`;
+        if(!obj.children[index].children){
+            html += `<li><a href="${obj.children[index].url}">${ellipsize(obj.children[index].title)}</a></li>`;
+        }
+        else{
+            html += `<li>
+                <details>
+                    <summary>${ellipsize(obj.children[index].title)}</summary>
+                    
+                    <div class="content"><ul>`;
+            
+            for (let j = 0; j < obj.children[index].children.length; j++) {
+                const element = obj.children[index].children[j];
+
+                links.push(element);
+                
+                html += `<li><a class="sublink" href="${element.url}">${ellipsize(element.title)}</a></li>`;
+            }
+
+            html += `</ul></div></details></li>`;
+        }
     }
 
     html+=`</ul></div>`;
