@@ -43,6 +43,34 @@ const getParentFolder = (res) => { if (res.length > 0) {
 // Looking for parent folder
 chrome.bookmarks.search("Startpage").then(res => getParentFolder(res));
 
+const createSubFolders = (obj) => {
+    let html = ""
+    html += `<li>
+                <details>
+                    <summary>${ellipsize(obj.title)}</summary>
+                    
+                    <div class="content"><ul>`;
+            
+    for (let j = 0; j < obj.children.length; j++) {
+        const element = obj.children[j];
+
+        links.push(element);
+        
+        if(element.children){
+            console.log('sub folder detected');
+            html+= `${createSubFolders(element)}`;
+        }
+
+        else{
+            html += `<li><a class="sublink" href="${element.url}">${ellipsize(element.title)}</a></li>`;
+        }
+    }
+
+    html += `</ul></div></details></li>`;
+
+    return html;
+}
+
 // Creating HTML for each section
 const createHTML = (obj) => {
 
@@ -53,21 +81,7 @@ const createHTML = (obj) => {
             html += `<li><a href="${obj.children[index].url}">${ellipsize(obj.children[index].title)}</a></li>`;
         }
         else{
-            html += `<li>
-                <details>
-                    <summary>${ellipsize(obj.children[index].title)}</summary>
-                    
-                    <div class="content"><ul>`;
-            
-            for (let j = 0; j < obj.children[index].children.length; j++) {
-                const element = obj.children[index].children[j];
-
-                links.push(element);
-                
-                html += `<li><a class="sublink" href="${element.url}">${ellipsize(element.title)}</a></li>`;
-            }
-
-            html += `</ul></div></details></li>`;
+            html += createSubFolders(obj.children[index]);
         }
     }
 

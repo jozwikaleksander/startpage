@@ -107,12 +107,17 @@ i{
 }
 details{
     box-sizing: border-box;
-    width:200px;
 }
 details > summary {
     list-style: none;
     cursor: pointer;
     transition: var(--transition);
+}
+details > div{
+    padding-left:20px;
+}
+details > summary::before{
+    content:' ';
 }
 details > summary:hover {
     color: var(--accentColor);
@@ -120,10 +125,7 @@ details > summary:hover {
 details > summary::-webkit-details-marker {
     display: none;
 }
-summary::before{
-    content:' ';
-}
-details[open] summary::before{
+.open::before{
     content:' ';
 }
 /* Wrapper */
@@ -481,7 +483,6 @@ input[type="color"]::after{
     opacity: 1;
 }
 .sublink{
-    margin-left:20px;
     display: block;
 }
 .sublink::before{
