@@ -43,10 +43,10 @@ const getParentFolder = (res) => { if (res.length > 0) {
 // Looking for parent folder
 chrome.bookmarks.search("Startpage").then(res => getParentFolder(res));
 
-const createSubFolders = (obj) => {
+const createSubFolders = (obj,depth=1) => {
     let html = ""
     html += `<li>
-                <details>
+                <details data-depth=${depth}>
                     <summary>${ellipsize(obj.title)}</summary>
                     
                     <div class="content"><ul>`;
@@ -58,7 +58,7 @@ const createSubFolders = (obj) => {
         
         if(element.children){
             console.log('sub folder detected');
-            html+= `${createSubFolders(element)}`;
+            html+= `${createSubFolders(element,depth+1)}`;
         }
 
         else{
@@ -112,12 +112,4 @@ const findMatch = (arrival, list) => {
         matches.innerHTML = "";
         return [];
     }
-}
-
-// Ellipsize text
-const ellipsize = (text) => {
-    if (text.length > 15) {
-        return text.substring(0, 15) + '...';
-    }
-    return text;
 }

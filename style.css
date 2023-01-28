@@ -115,12 +115,15 @@ details > summary {
 }
 details > div{
     padding-left:20px;
+    width: 100%;
 }
 details > summary::before{
     content:' ';
 }
-details > summary:hover {
+details > summary:hover,
+details > summary:focus {
     color: var(--accentColor);
+    outline: none;
 }
 details > summary::-webkit-details-marker {
     display: none;

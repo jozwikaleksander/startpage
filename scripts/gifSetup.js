@@ -5,8 +5,6 @@ const gifPath = "";
 
 gifTag.src = gifDefault;
 
-// TODO: Somehow I need to be able to find if gif can be accessed
-
 chrome.storage.sync.get(['startpageGif'],function(gif){
     if(gif.startpageGif != undefined && gif.startpageGif != ""){
         assignGif(gif.startpageGif);
