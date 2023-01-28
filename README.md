@@ -14,6 +14,7 @@ Customizable startpage chrome extension.
 - [x] information about time and weather(from Open Weather API)
 - [x] customizable color scheme (and gif)
 - [x] importing and exporting settings using JSON
+- [x] ability to group your bookmarks in folders
 
 ## **⚙ Installation**
 1. Clone the repository
