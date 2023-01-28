@@ -41,8 +41,19 @@ const getParentFolder = (res) => { if (res.length > 0) {
 } }
 
 // Looking for parent folder
-chrome.bookmarks.search("Startpage").then(res => getParentFolder(res));
+chrome.bookmarks.search("Startpage").then(res => 
+{
+    res = res.filter(el => el.title ==  "Startpage");
+    
+    if(res.length == 0){
+        showPopupMessage("There is no Startpage folder in your bookmarks.");
+    }
+    else{
+        getParentFolder(res);
+    }   
+});
 
+// Creating sub folders HTML and adding their bookmarks to links array
 const createSubFolders = (obj,depth=1) => {
     let html = ""
     html += `<li>
@@ -57,7 +68,6 @@ const createSubFolders = (obj,depth=1) => {
         links.push(element);
         
         if(element.children){
-            console.log('sub folder detected');
             html+= `${createSubFolders(element,depth+1)}`;
         }
 
