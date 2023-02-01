@@ -24,7 +24,7 @@ $(search).on('keypress keyup change input', function() {
             "url": `https://www.youtube.com/results?search_query=${encodeURIComponent(arrival.slice(2))}`
         }]
     }
-    else if(/l\/\d+/.test(arrival)){
+    else if(/l\/\d+/.test(arrival) || /localhost:\d+/.test(arrival) || /l:\d+/.test(arrival) && /localhost:\d+/.test(arrival)){
         // Localhost
         currentMatch = [{
             "url": `http://localhost:${arrival.slice(2)}`
@@ -37,6 +37,15 @@ $(search).on('keypress keyup change input', function() {
         let search = rest.slice(1).join("=");
         currentMatch = [{
             "url": `https://translate.google.com/?sl=auto&tl=${options}&text=${encodeURIComponent(search)}&op=translate`
+        }]
+    }
+    else if(/settings\//g.test(arrival) || /s\//g.test(arrival)){
+        // Google translate
+        let rest = arrival.slice(3).split("=");
+        let options = rest[0];
+        let search = rest.slice(1).join("=");
+        currentMatch = [{
+            "url": `config/configuration.html`
         }]
     }
     else{

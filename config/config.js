@@ -27,6 +27,7 @@ $("#settings-form").submit((e) => {
 
 // Setting values to user storage
 const setData = (inputs) => { 
+    console.log(inputs);
     inputs.map(input => {
         let inputID = input.id;
         let inputValue = input.value;
@@ -73,7 +74,57 @@ $(".export-button").click((e) => {
     showPopupMessage("Settings copied to clipboard");
 });
 
+// Reset button
 $("#settings-reset").click((e) => {
     e.preventDefault();
-    setInputs();
+    inputs.map(input => {
+        let inputID = input.id;
+        let inputValue = defaultConfig[inputID];
+        chrome.storage.sync.set({[inputID]:inputValue});
+    });
 });
+
+// Sliders
+
+$("input[type=range]").change((e) => {
+    let id = e.target.id;
+    let value = e.target.value;
+
+    switch(id){
+        case 'gifX':
+            $('#gif-img').css('left',value+"%");
+            $("#"+id+"Display").text(value+"%");
+            break;
+        case 'gifY':
+            $('#gif-img').css('top',value+"%");
+            $("#"+id+"Display").text(value+"%");
+            break;
+        case 'gifWidth':
+            $('.gif').css('width',value+"px");
+            $("#"+id+"Display").text(value+"px");
+            break;
+        case 'gifHeight':
+            $('.gif').css('height',value+"px");
+            $("#"+id+"Display").text(value+"px");
+            break;
+        case 'gifZoom':
+            $('#gif-img').css('transform',"scale("+value+")");
+            $("#"+id+"Display").text(value);
+            break;
+    }
+})
+
+$("#gifAuto").click((e) => {
+    e.preventDefault();
+    if(e.target.value == "on"){
+        $(".gif-settings").css("display","flex");
+        $(e.target).prop("value","off");
+        $(e.target).prop("checked",false);
+    }
+    else{
+        $(".gif-settings").css("display","none");
+        $(e.target).prop("value","on");
+        $(e.target).prop("checked",true);
+    }
+    console.log(e.target.value);
+})

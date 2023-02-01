@@ -11,6 +11,7 @@
     <script src="../jquery/jquery-3.6.1.min.js"></script>
     <link rel="stylesheet" href="../fontawesome/css/all.css">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="config.css">
 
     <!-- Style -->
     <style>
@@ -34,6 +35,30 @@
         <input class="settings-input" type="text" id="startpageGif">
         <br>
 
+        <p class="accent">GIF customization:</p>
+
+        <label for="autoSetup">Set GIF automatically: <input type="checkbox" id="gifAuto" class="settings-input"></label>
+        
+        <br>
+
+        <div class="gif-settings">
+            <div class="gif-settings-sliders">
+                <label for="gifWidth">Width: <input type="range" min="1" max="500" value="200" id="gifWidth" class="settings-input"> <span id="gifWidthDisplay">200px</span></label>
+
+                <label for="gifHeight">Height: <input type="range" min="1" max="500" value="200" id="gifHeight" class="settings-input"> <span id="gifHeightDisplay">200px</span></label>
+
+                <label for="gifX">X Offset: <input type="range" min="0" max="100" value="0" id="gifX" class="settings-input"> <span id="gifXDisplay">0%</span></label>
+
+                <label for="gifY">Y Offset: <input type="range" min="0" max="100" value="0" id="gifY" class="settings-input"> <span id="gifYDisplay">0%</span></label>
+
+                <label for="gifZoom">Zoom : <input type="range" min="-1" max="2" value="1" step="0.1" id="gifZoom" class="settings-input"> <span id="gifZoomDisplay">1</span></label>
+            </div>
+
+            <div class="gif" style="max-width: 500px;height: 500px;">
+                <img id="gif-img" alt="GIF" src="../img/gif.gif">
+            </div>
+        </div>
+
         <p class="accent">Search engine URL:</p>
 
         <input class="settings-input" type="text" id="searchEngine">
@@ -54,7 +79,7 @@
         <input class="settings-input" id="foregroundColor" type="color" value="#3c3836" />
         <input class="settings-input" id="backgroundColor" type="color" value="#282828" />
         <input class="settings-input" id="fontColor" type="color" value="#ffffff" />
-        <input class="settings-input"id="fontHoverColor" type="color" value="#aaaaaa" />
+        <input class="settings-input" id="fontHoverColor" type="color" value="#aaaaaa" />
         <br>
         <input class="import-button" type="button" value="Import from JSON">
         <input class="export-button" type="button" value="Export to JSON">
@@ -81,9 +106,11 @@
         <span class="popup-message-close"><i class="fa-solid fa-xmark accent"></i></span>
     </div>
 
+    <script src="../scripts/defaultConfig.js"></script>
     <script src="../scripts/colorTweaking.js"></script>
     <script src="../scripts/popupMessage.js"></script>
     <script src="config.js"></script>
     <script src="../scripts/setCSS.js"></script>
+    <script src="../scripts/gifSetup.js">gifDefault = "../"+gifDefault;</script>
 </body>
 </html>

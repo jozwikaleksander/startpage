@@ -1,0 +1,17 @@
+{
+    "openWeatherAPIURL":"",
+    "startpageGif":"img/gif.gif",
+    "searchEngine":"https://www.google.com/search?q=",
+    "fontColor":"#ffffff",
+    "fontHoverColor":"#aaaaaa",
+    "backgroundColor":"#282828",
+    "foregroundColor":"#3c3836",
+    "accentColor":"#b8bb26",
+    "fontFamily":"FiraCode",
+    "gifAuto":"on",
+    "gifWidth":"100%",
+    "gifHeight":"100%",
+    "gifX":"0%",
+    "gifY":"0%",
+    "gifZoom":"1"
+}
