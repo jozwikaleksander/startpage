@@ -55,7 +55,6 @@ $("#import-popup-button").click((e) => {
     inputs.map(input => {
         let inputID = input.id;
         let inputValue = importData[inputID];
-        console.log(inputID, inputValue);
         chrome.storage.sync.set({[inputID]:inputValue});
     });
     $(".import-popup").toggleClass("hidden");
@@ -85,11 +84,11 @@ $("#settings-reset").click((e) => {
 });
 
 // Sliders
-
 $("input[type=range]").change((e) => {
     let id = e.target.id;
     let value = e.target.value;
 
+    // Depending on the id of the slider, it will change the CSS
     switch(id){
         case 'gifX':
             $('#gif-img').css('left',value+"%");
@@ -114,6 +113,7 @@ $("input[type=range]").change((e) => {
     }
 })
 
+// Function for gifAuto checkbox
 $("#gifAuto").click((e) => {
     e.preventDefault();
     if(e.target.value == "on"){
@@ -126,5 +126,4 @@ $("#gifAuto").click((e) => {
         $(e.target).prop("value","on");
         $(e.target).prop("checked",true);
     }
-    console.log(e.target.value);
 })

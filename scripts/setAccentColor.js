@@ -1,3 +1,5 @@
+// Setting accent color
+
 chrome.storage.sync.get(['accentColor'], function(color) {
     if(color.accentColor){
         document.body.style = "--accent-color: " +color.accentColor;
@@ -5,4 +7,4 @@ chrome.storage.sync.get(['accentColor'], function(color) {
     else{
         document.body.style = "--accent-color: " +"#b8bb26";
     }
-    })
+})

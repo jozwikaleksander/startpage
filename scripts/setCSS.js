@@ -8,6 +8,7 @@ let gifSetAuto = false;
 valuesToSetup.map(value => {
     chrome.storage.sync.get([value], function(res) {
         if(res[value] != undefined && res[value] != ""){
+            // Depending on gifAuto state we set gif settings to be visible or not, and set gif max-width to 30% of screen
             if(value == 'gifAuto'){
                 if(res[value] == 'on'){
                     gifSetAuto = true;
@@ -19,11 +20,13 @@ valuesToSetup.map(value => {
                     }
                 }
             }
+            // Adding px to property value
             else if(value == "gifWidth" || value == "gifHeight"){
                 if(!gifSetAuto){
                     document.body.style.setProperty(  '--'+value,res[value]+"px");
                 }
             }
+            // Adding % to property value
             else if(value == 'gifX' || value == 'gifY'){
                 if(!gifSetAuto){
                     document.body.style.setProperty(  '--'+value,res[value]+"%");

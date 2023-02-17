@@ -1,3 +1,5 @@
+// Default config for the extension
+
 const defaultConfig = {
     "openWeatherAPIURL":"",
     "searchEngine":"https://www.google.com/search?q=",
