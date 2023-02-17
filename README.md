@@ -1,6 +1,6 @@
 # 🏠 Startpage
 
-![My configuration](docs/images/screenshot.png)
+![My configuration](docs/images/catppuccin_mocha.png)
 
 Customizable startpage chrome extension.
 
@@ -75,8 +75,29 @@ You can import settings from JSON in **extension settings**. Pattern for your co
 
 To export config simply click **Export button** in **extension settings**s and your configuration will be copied to clipboard.
 
-You can also use custom themes that I made: [click here](https://github.com/jozwikaleksander/startpage/tree/main/docs/themes).
+## **🎨 Themes**
 
+Below you can find themes that I prepared. Feel free to modify them to your liking.
+
+### Nord
+![Nord](docs/images/nord.png)
+
+[Link to JSON](https://github.com/jozwikaleksander/startpage/blob/main/docs/themes/nord.json)
+
+### Catppuccin
+![Nord](docs/images/catppuccin_mocha.png)
+
+[Link to JSON](https://github.com/jozwikaleksander/startpage/blob/main/docs/themes/cattpucin-mocha.json)
+
+### Gruvbox
+![Nord](docs/images/gruvbox.png)
+
+[Link to JSON](https://github.com/jozwikaleksander/startpage/blob/main/docs/themes/gruvbox.json)
+
+### Rosepine
+![Nord](docs/images/rosepine.png)
+
+[Link to JSON](https://github.com/jozwikaleksander/startpage/blob/main/docs/themes/rosepine.json)
 
 ## **👤 Credits**
 Project was made by Aleksander Jóźwik ([@jozwikaleksander](https://github.com/jozwikaleksander)).
