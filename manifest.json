@@ -15,7 +15,11 @@
         "homepage":"index.html"
     },
     "icons": {
-        "96":"icon.png"
+        "192":"icons/android-chrome-192x192.png",
+        "512":"icons/android-chrome-512x512.png",
+        "180":"icons/apple-touch-icon.png",
+        "32":"icons/favicon-32x32.png",
+        "16":"icons/favicon-16x16.png"
     },
     "options_page":"config/configuration.html"
 }

@@ -30,6 +30,18 @@ $(search).on('keypress keyup change input', function() {
             "url": `http://localhost:${arrival.slice(2)}`
         }]
     }
+    else if(/^g\/\d+/.test(arrival)){
+        // Google search
+        currentMatch = [{
+            "url": `https://www.google.com/search?q=${arrival.slice(2)}`
+        }]
+    }
+    else if(/^d\/\d+/.test(arrival)){
+        // DuckDuckGo search
+        currentMatch = [{
+            "url": `https://duckduckgo.com/?q=${arrival.slice(2)}`
+        }]
+    }
     else if(/^tr-[a-z][a-z][a-z]?=/g.test(arrival)){
         // Google translate
         let rest = arrival.slice(3).split("=");
