@@ -16,6 +16,8 @@ Customizable startpage chrome extension.
 - [x] importing and exporting settings using JSON
 - [x] ability to group your bookmarks in folders
 
+Full list of shortcuts you can find [HERE](#⌨-search-bar-shortcuts-cheatsheet)
+
 ## **⚙ Installation**
 1. Clone the repository
 
@@ -98,6 +100,19 @@ Below you can find themes that I prepared. Feel free to modify them to your liki
 ![Nord](docs/images/rosepine.png)
 
 [Link to JSON](https://github.com/jozwikaleksander/startpage/blob/main/docs/themes/rosepine.json)
+
+## ⌨ Search bar shortcuts cheatsheet
+
+| 🔍 Search bar shortcut               | ⚙ Operation                                   |
+|---------------------------------     	|---------------------------------------------	|
+| **bookmark*                        	| searching saved bookmarks                   	|
+| r/*subreddit*                        	| searching saved subreddits                  	|
+| y/*search*                           	| searching on Youtube                        	|
+| l/*port* or localhost:*port*        	| moving to localhost page                    	|
+| tr-*target-language*=*sentence* 	| translating sentences via Google Translator 	|
+| s/                              	| moving to Startpage configuration page      	|
+| g/*search*                           	| searching on Google                         	|
+| d/*search*                           	| searching on DuckDuckGo                     	|
 
 ## **👤 Credits**
 Project was made by Aleksander Jóźwik ([@jozwikaleksander](https://github.com/jozwikaleksander)).
