@@ -24,13 +24,13 @@ $(search).on('keypress keyup change input', function() {
             "url": `https://www.youtube.com/results?search_query=${encodeURIComponent(arrival.slice(2))}`
         }]
     }
-    else if(/l\/\d+/.test(arrival) || /localhost:\d+/.test(arrival) || /l:\d+/.test(arrival) && /localhost:\d+/.test(arrival)){
+    else if(/^l\/\d+/.test(arrival) || /^localhost:\d+/.test(arrival) || /^l:\d+/.test(arrival) && /^localhost:\d+/.test(arrival)){
         // Localhost
         currentMatch = [{
             "url": `http://localhost:${arrival.slice(2)}`
         }]
     }
-    else if(/tr-[a-z][a-z][a-z]?=/g.test(arrival)){
+    else if(/^tr-[a-z][a-z][a-z]?=/g.test(arrival)){
         // Google translate
         let rest = arrival.slice(3).split("=");
         let options = rest[0];
@@ -39,13 +39,18 @@ $(search).on('keypress keyup change input', function() {
             "url": `https://translate.google.com/?sl=auto&tl=${options}&text=${encodeURIComponent(search)}&op=translate`
         }]
     }
-    else if(/settings\//g.test(arrival) || /s\//g.test(arrival)){
+    else if(/^settings\//g.test(arrival) || /^s\//g.test(arrival)){
         // Google translate
         let rest = arrival.slice(3).split("=");
         let options = rest[0];
         let search = rest.slice(1).join("=");
         currentMatch = [{
             "url": `config/configuration.html`
+        }]
+    }
+    else if(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/.test(arrival)){
+        currentMatch = [{
+            "url": `${arrival}`
         }]
     }
     else{

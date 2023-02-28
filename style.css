@@ -524,6 +524,7 @@ label>span{
 }
 input[value="off"] {
   -webkit-appearance: none;
+  appearance: unset;
   width: 20px;
   height: 20px;
   background-color: var(--foregroundColor);
@@ -534,6 +535,7 @@ input[value="off"] {
 }
 input[value="on"] {
   -webkit-appearance: none;
+  appearance: unset;
   width: 20px;
   height: 20px;
   background-color: var(--accentColor);
