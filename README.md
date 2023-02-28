@@ -108,9 +108,9 @@ Below you can find themes that I prepared. Feel free to modify them to your liki
 | **bookmark*                        	| searching saved bookmarks                   	|
 | r/*subreddit*                        	| searching saved subreddits                  	|
 | y/*search*                           	| searching on Youtube                        	|
-| l/*port* or localhost:*port*        	| moving to localhost page                    	|
+| l/*port* or localhost:*port*        	| go to localhost page                    	|
 | tr-*target-language*=*sentence* 	| translating sentences via Google Translator 	|
-| s/                              	| moving to Startpage configuration page      	|
+| s/                              	| go to Startpage settings      	|
 | g/*search*                           	| searching on Google                         	|
 | d/*search*                           	| searching on DuckDuckGo                     	|
 
