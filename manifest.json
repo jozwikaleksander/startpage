@@ -21,5 +21,8 @@
         "32":"icons/favicon-32x32.png",
         "16":"icons/favicon-16x16.png"
     },
-    "options_page":"config/configuration.html"
+    "options_page":"config/configuration.html",
+    "background":{
+        "service_worker": "worker.js"
+    }
 }
